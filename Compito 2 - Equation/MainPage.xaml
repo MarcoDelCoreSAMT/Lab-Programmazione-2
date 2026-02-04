@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Compito_2___Equation.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,0">
+
+            <Label
+                Text="Risolutore Equazioni"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="CadetBlue"
+                Margin="18"
+            />
+
+            <Label  
+                Text="Data l'equazione ax^2 + bx + c = 0"
+                HorizontalOptions="Center"
+                Margin="15"
+            />
+
+            <Grid ColumnDefinitions="Auto, *"
+                  RowDefinitions="Auto, Auto, Auto"
+                  ColumnSpacing="15"
+                  RowSpacing="15">
+
+            <Label Grid.Row="0" Grid.Column="0"
+                   Text="Coefficiente A"
+                   VerticalOptions="Center"/>
+                
+            <Entry Grid.Row="0" Grid.Column="1"
+                x:Name="EntA"
+                Keyboard="Numeric"
+                Margin="5"
+                Placeholder="Inserisci il valore di a"
+            />
+
+            <Label Grid.Row="1" Grid.Column="0"
+                Text="Coefficiente B"
+                VerticalOptions="Center"/>
+                
+            <Entry Grid.Row="1" Grid.Column="1"
+                x:Name="EntB"
+                Keyboard="Numeric"
+                Margin="5"
+                Placeholder="Inserisci il valore di b"
+            />
+
+                <Label Grid.Row="2" Grid.Column="0"
+                    Text="Coefficiente C"
+                    VerticalOptions="Center"/>
+
+                <Entry Grid.Row="2" Grid.Column="2"
+                x:Name="EntC"
+                Keyboard="Numeric"
+                Margin="5"
+                Placeholder="Inserisci il valore di c"
+            />
+                
+            </Grid>
+
+            <Button x:Name="btnCalcola"
+                Text="Calcola Radici"
+                BackgroundColor="LightCoral"
+                Margin="20"
+                Clicked="btnCalcolaCliked"
+            />
+
+            <Label x:Name="lblRisultato"
+                Text="Inserisci i valori per iniziare"
+                FontSize="14"
+                Padding="15"
+                HorizontalTextAlignment="Center"
+                BackgroundColor="LightGray"
+            />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HelloLayout.MainPage">
+
+    <ScrollView>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Column="0" Grid.Row="0">
+                <Button Grid.Column="0" Grid.Row="0" Text="b(0;0)" Margin="5"/>
+                <Button Grid.Column="0" Grid.Row="0" Text="b(0;12.5)" Margin="1"/>
+                <Button Grid.Column="0" Grid.Row="0" Text="b(0;25)" Margin="2"/>
+                <Button Grid.Column="0" Grid.Row="0" Text="b(0;37.5)" Margin="2"/>
+            </VerticalStackLayout>
+
+            <Button Grid.Column="1" Grid.Row="0" Text="b(50;0)" Margin="5"/>
+            <Button Grid.Column="2" Grid.Row="0" Text="b(100;0)" Margin="5"/>
+            <Button Grid.Column="3" Grid.Row="0" Text="b(150;0)" Margin="5"/>
+
+            <Button Grid.Column="0" Grid.Row="1" Text="b(0;50)" Margin="5"/>
+            <Button Grid.Column="1" Grid.Row="1" Text="b(50;50)" Margin="5"/>
+            <Button Grid.Column="2" Grid.Row="1" Text="b(100;50)" Margin="5"/>
+            <Button Grid.Column="3" Grid.Row="1" Text="b(150;50)" Margin="5"/>
+
+            <Button Grid.Column="0" Grid.Row="2" Text="b(0;100)" Margin="5"/>
+            <Button Grid.Column="1" Grid.Row="2" Text="b(50;100)" Margin="5"/>
+            <Button Grid.Column="2" Grid.Row="2" Text="b(100;100)" Margin="5"/>
+            <Button Grid.Column="3" Grid.Row="2" Text="b(150;100)" Margin="5"/>
+
+            <Button Grid.Column="0" Grid.Row="3" Text="b(0;150)" Margin="5"/>
+            <Button Grid.Column="1" Grid.Row="3" Text="b(50;150)" Margin="5"/>
+            <Button Grid.Column="2" Grid.Row="3" Text="b(100;150)" Margin="5"/>
+            <Button Grid.Column="3" Grid.Row="3" Text="b(150;150)" Margin="5"/>
+        </Grid>
+        
+    </ScrollView>
+
+</ContentPage>
