@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppQuiz.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            Background="#FFFDF1">
+            
+            <Label x:Name="ScoreLabel"
+                   Text="Punteggio: 0"
+                   FontSize="22"
+                   Padding="15"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource Primary}" />
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="DOMANDA"
+                       FontSize="12"
+                       TextColor="Gray"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="QuestionTextLabel"
+                       Text="Caricamento domanda..."
+                       FontSize="24"
+                       HorizontalTextAlignment="Center"
+                       FontAttributes="Bold"
+                       TextColor="Black" />
+                <Image x:Name="QuestionImage"
+                       HeightRequest="150"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center" />    
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button x:Name="TrueButton"
+                        Text="VERO"
+                        Clicked="OnAnswer_Clicked"
+                        CommandParameter="true"
+                        WidthRequest="130"
+                        HeightRequest="60"
+                        FontSize="18"
+                        BackgroundColor="#27ae60"
+                        CornerRadius="10" />
+
+                <Button x:Name="FalseButton"
+                        Text="FALSO"
+                        Clicked="OnAnswer_Clicked"
+                        CommandParameter="false"
+                        WidthRequest="130"
+                        HeightRequest="60"
+                        FontSize="18"
+                        BackgroundColor="#c0392b"
+                        CornerRadius="10" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

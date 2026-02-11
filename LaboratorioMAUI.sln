@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compito 2 - Equation", "Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloLayout", "HelloLayout\HelloLayout.csproj", "{4446378C-B2E2-48A4-8598-4F945E1CDA6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppQuiz", "AppQuiz\AppQuiz.csproj", "{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,12 @@ Global
 		{4446378C-B2E2-48A4-8598-4F945E1CDA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4446378C-B2E2-48A4-8598-4F945E1CDA6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4446378C-B2E2-48A4-8598-4F945E1CDA6B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +64,7 @@ Global
 		{FF7DF35A-E8BB-48CF-BC6C-0558150B1994} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
 		{52AA9652-88B9-4D86-8E1F-9B9CB4E1EE4F} = {5E016671-4C59-455A-8E20-B42974099E76}
 		{4446378C-B2E2-48A4-8598-4F945E1CDA6B} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9} = {5E016671-4C59-455A-8E20-B42974099E76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CDCBA6E-B65D-4DBF-A0D9-B99F89E725E8}
