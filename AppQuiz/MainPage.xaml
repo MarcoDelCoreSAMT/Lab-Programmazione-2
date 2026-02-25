@@ -18,7 +18,8 @@
                    TextColor="{StaticResource Primary}" />
 
             <VerticalStackLayout Spacing="15">
-                <Label Text="DOMANDA"
+                <Label x:Name="Domanda"
+                       Text="DOMANDA"
                        FontSize="12"
                        TextColor="Gray"
                        HorizontalOptions="Center" />
@@ -56,6 +57,13 @@
                         BackgroundColor="#c0392b"
                         CornerRadius="10" />
             </HorizontalStackLayout>
+
+            <Button x:Name="btnResult" 
+                    WidthRequest="140" 
+                    HeightRequest="50"
+                    Text="Vai a risultati"
+                    BackgroundColor="#FFC400"
+                    Clicked="btnResult_Clicked" />
 
         </VerticalStackLayout>
     </ScrollView>
