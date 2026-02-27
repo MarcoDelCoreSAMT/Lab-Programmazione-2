@@ -18,7 +18,7 @@ namespace AppQuiz
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            Routing.RegisterRoute("AboutPage", typeof(AboutPage));
             return builder.Build();
         }
     }

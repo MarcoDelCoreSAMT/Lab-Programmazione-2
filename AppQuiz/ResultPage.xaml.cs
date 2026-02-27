@@ -17,4 +17,9 @@ public partial class ResultPage : ContentPage
 		lblScore.Text = _score.ToString();
 		champ.Source = "win.png";
 	}
+
+    private async void OnRestart_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MainPage());
+    }
 }

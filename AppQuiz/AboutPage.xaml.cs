@@ -1,6 +1,6 @@
 namespace AppQuiz;
 
-public partial class AboutPage : ContentView
+public partial class AboutPage : ContentPage
 {
 	public AboutPage()
 	{
