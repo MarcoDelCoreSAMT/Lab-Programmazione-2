@@ -33,7 +33,18 @@
                 <Image x:Name="QuestionImage"
                        HeightRequest="150"
                        Aspect="AspectFit"
-                       HorizontalOptions="Center" />    
+                       HorizontalOptions="Center" />
+                
+                <!-- Domanda aperta -->
+                <Entry x:Name="OpenAnswerEntry"
+                   Placeholder="Scrivi la tua risposta..."
+                   IsVisible="False"
+                   HorizontalOptions="Fill" />
+                <Button x:Name="SubmitOpenButton"
+                    Text="INVIA"
+                    IsVisible="False"
+                    Clicked="SubmitOpenButton_Clicked" /> 
+                
             </VerticalStackLayout>
 
             <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">

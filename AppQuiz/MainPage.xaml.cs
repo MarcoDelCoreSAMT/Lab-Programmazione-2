@@ -13,6 +13,7 @@ namespace AppQuiz
             InitializeComponent();
             _questions.Add(new TrueFalseQuestion("C# è un linguaggio ad oggetti?", 10, true, "csharp_logo.png"));
             _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato?", 15, false, "python_symbol.png"));
+            _questions.Add(new OpenQuestion("Qual'è il nome per il framework Microsoft per app cross-platform", 20, ".NET MAUI", "freimuork.png"));
             ShowQuestion();
             btnResult.IsEnabled = false;
         }
@@ -43,18 +44,33 @@ namespace AppQuiz
             {
                 // creo un oggetto Question che contiene la domanda corrente
                 QuestionBase current = _questions[_currentIndex];
-                QuestionImage.Source = current.Immagine; 
+                QuestionImage.Source = current.Immagine;
                 QuestionTextLabel.Text = current.Text;
                 ScoreLabel.Text = $"Punteggio: {_score}";
-            }
-            else
-            {
-                QuestionImage.Source = "fineciao.png";
-                TrueButton.IsEnabled = FalseButton.IsEnabled = false;
-                QuestionImage.IsEnabled = false;
-                QuestionTextLabel.Text = "Fine";
-                ScoreLabel.Text = "";
-                btnResult.IsEnabled = true;
+
+                if (current is TrueFalseQuestion)
+                {
+                    TrueButton.IsVisible = FalseButton.IsVisible = true;
+                    OpenAnswerEntry.IsVisible = false;
+                    SubmitOpenButton.IsVisible = false;
+                }
+                else if (current is OpenQuestion)
+                {
+                    TrueButton.IsVisible = FalseButton.IsVisible = false;
+                    OpenAnswerEntry.IsVisible = true;
+                    SubmitOpenButton.IsVisible = true;
+                }
+                else
+                {
+                    QuestionImage.Source = "fineciao.png";
+                    OpenAnswerEntry.IsVisible = false;
+                    SubmitOpenButton.IsVisible = false;
+                    TrueButton.IsEnabled = FalseButton.IsEnabled = false;
+                    QuestionImage.IsEnabled = false;
+                    QuestionTextLabel.Text = "Fine";
+                    ScoreLabel.Text = "";
+                    btnResult.IsEnabled = true;
+                }
             }
         }
 
@@ -68,6 +84,32 @@ namespace AppQuiz
             // Richiamiamo il metodo PushAsync e gli passiamo il nuovo oggetto ResultPage
             // Attendiamo senza bloccare la pagina grazie ad await e async
             await Navigation.PushAsync(new ResultPage(_score));
+        }
+
+        private async void SubmitOpenButton_Clicked(object sender, EventArgs e)
+        {
+            OpenQuestion current = (OpenQuestion)_questions[_currentIndex];
+
+            if (current.CheckOpenAnswer(OpenAnswerEntry.Text))
+            {
+                _score += current.Points;
+                await DisplayAlert("Corretto!", "Risposta giusta!", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Errore", "Risposta sbagliata", "OK");
+            }
+
+            OpenAnswerEntry.Text = "";
+            _currentIndex++;
+            QuestionImage.Source = "fineciao.png";
+            OpenAnswerEntry.IsVisible = false;
+            SubmitOpenButton.IsVisible = false;
+            TrueButton.IsEnabled = FalseButton.IsEnabled = false;
+            QuestionImage.IsEnabled = false;
+            QuestionTextLabel.Text = "Fine";
+            ScoreLabel.Text = "";
+            btnResult.IsEnabled = true;
         }
     }
 

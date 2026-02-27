@@ -15,6 +15,6 @@ public partial class ResultPage : ContentPage
 	private void ShowGUI() 
 	{
 		lblScore.Text = _score.ToString();
-		champ.SourceImage = "";
+		champ.Source = "win.png";
 	}
 }

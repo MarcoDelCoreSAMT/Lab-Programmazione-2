@@ -30,6 +30,13 @@
                        TextColor="MediumPurple"
                        VerticalOptions="Center" 
                        HorizontalOptions="Center"/>
+
+                <Label 
+                    Text="su un totale di 45 pt"
+                    FontSize="16"
+                    TextColor="Gray"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
             </VerticalStackLayout>
 
         </Frame>
