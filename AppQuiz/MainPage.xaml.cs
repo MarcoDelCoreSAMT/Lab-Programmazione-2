@@ -28,10 +28,10 @@ namespace AppQuiz
             if (_questions[_currentIndex].CheckAnswer(userAnswer))
             {
                 _score += _questions[_currentIndex].Points;
-                await DisplayAlert("Giusto!", "Bravo hai risposto correttamente!.", "GODO");
+                await DisplayAlert("Giusto!", "Bravo hai risposto correttamente!.", "Avanti");
             }
             else {
-                await DisplayAlert("Errato!", "Risposta sbagliata...", "Accidenti...");
+                await DisplayAlert("Errato!", "Risposta sbagliata...", "Avanti");
             }
                 _currentIndex++;
             ShowQuestion();
@@ -93,11 +93,11 @@ namespace AppQuiz
             if (current.CheckOpenAnswer(OpenAnswerEntry.Text))
             {
                 _score += current.Points;
-                await DisplayAlert("Corretto!", "Risposta giusta!", "OK");
+                await DisplayAlert("Corretto!", "Risposta giusta!", "Avanti");
             }
             else
             {
-                await DisplayAlert("Errore", "Risposta sbagliata", "OK");
+                await DisplayAlert("Errato!", "Risposta sbagliata", "Avanti");
             }
 
             OpenAnswerEntry.Text = "";
