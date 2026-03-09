@@ -49,9 +49,6 @@
         <HorizontalStackLayout HorizontalOptions="Center"
                    Spacing="6">
 
-            <Label Text="🏆"
-                FontSize="16" />
-
             <Label Text="Miglior Punteggio:"
                FontSize="16"
                TextColor="#f39c12"
@@ -60,9 +57,26 @@
             <Label x:Name="BestScoreLabel"
                Text="0"
                FontSize="16"
-               TextColor="#f39c12"
+               TextColor="#FFA95A"
                FontAttributes="Bold"/>
 
+        </HorizontalStackLayout>
+
+        <!--Caricamento nome + salvataggio-->
+        <HorizontalStackLayout HorizontalOptions="Center"
+           Spacing="6">
+        
+        <Entry x:Name="NameEntry"
+            Placeholder="Inserisci il tuo nome..."
+            WidthRequest="300"
+            HorizontalOptions="FillAndExpand"/>
+
+        <Button Text="Salva"
+            Clicked="OnSave_Clicked"
+            BackgroundColor="#6367FF"
+            WidthRequest="100"
+            TextColor="White"/>
+            
         </HorizontalStackLayout>
 
         <!-- Clicked="OnRestartClicked" -->

@@ -1,4 +1,4 @@
-namespace AppQuiz;
+ï»¿namespace AppQuiz;
 
 public partial class ResultPage : ContentPage
 {
@@ -13,17 +13,19 @@ public partial class ResultPage : ContentPage
 		// la variabile nasce e muore nel costruttore, da assegnare o da rendere globale
 		_score = score;
 		InitializeComponent();
-		// Salvato prima di ShowGUI così mostra record aggiornato
-		SaveBestScore(score);
+		
         ShowGUI();
     }
 
 	// variabile globalizzata
 	private void ShowGUI() 
 	{
-		lblScore.Text = _score.ToString();
+        lblScore.Text = _score.ToString();
 
-        BestScoreLabel.Text = LoadBestScore().ToString();
+        var best = LoadBestScore();
+
+        BestScoreLabel.Text =
+            $"{best.name} - {best.score} punti ({best.date})";
 
         champ.Source = "win.png";
 	}
@@ -33,53 +35,67 @@ public partial class ResultPage : ContentPage
         await Navigation.PushAsync(new MainPage());
     }
 
-	private void SaveBestScore(int score) 
+	private void SaveBestScore(string name, int score) 
 	{
         // Allochiamo lo score estrapolato dal file txt nella variabile best
-        int best = LoadBestScore();
+        var best = LoadBestScore();
 
-        // Se score del giocatore è maggiore di best (già salvato), allora abbiamo un nuovo record da salvare
-        if (score > best)
+        // Se score del giocatore Ã¨ maggiore di best (giÃ  salvato), allora abbiamo un nuovo record da salvare
+        if (score > best.score)
 		{
 			try 
 			{
-				File.WriteAllText(_filePath, score.ToString());
+                string today = DateTime.Now.ToString("yyyy-MM-dd");
+                string line = $"{name};{score};{today}";
+
+                File.WriteAllText(_filePath, line);
+
             } catch (Exception e) 
 			{
-				DisplayAlert("Errore", "Impossibile salvare il punteggio" + e.Message, "OK");
+				DisplayAlert("Errore", "Impossibile salvare: " + e.Message, "OK");
             }
 		}
     }
 
-	private int LoadBestScore() 
-	{
-		if (!File.Exists(_filePath)) { 
-			return 0;
-		}
+    private (string name, int score, string date) LoadBestScore()
+    {
+        if (!File.Exists(_filePath))
+            return ("Nessuno", 0, "-");
 
-		// È buona abitudine gestire l'eccezione di lettura/scrittura 
-		try
-		{
-			// Legge il contenuto del file txt
-			string content = File.ReadAllText(_filePath);
+        try
+        {
+            string content = File.ReadAllText(_filePath);
+            string[] parts = content.Split(';');
 
-			//Variabile locale per contenere il best score
-			int best;
+            if (parts.Length == 3)
+            {
+                string name = parts[0];
+                int score = int.Parse(parts[1]);
+                string date = parts[2];
 
-			if (int.TryParse(content, out best))
-			{
-				return best;
-			}
-			else
-			{
-				DisplayAlert("Errore", "Il file potrebbe essere corrotto, non esistere o non contiene un punteggio valido", "OK");
-				return 0; // Se non esiste un punteggio migliore, ritorna 0
-			}
-		}
-		catch (Exception ex) 
-		{
-			DisplayAlert("Errore", "Impossibile leggere il punteggio" + ex.Message, "OK");
-			return 0;
-		}
+                return (name, score, date);
+            }
+        }
+        catch
+        {
+            DisplayAlert("Errore", "Il file potrebbe essere corrotto, non esistente o con valori sbagliati", "OK");
+        }
+
+        return ("Errore", 0, "-");
+    }
+
+    private async void OnSave_Clicked(object sender, EventArgs e)
+    {
+        string name = NameEntry.Text;
+
+        if (string.IsNullOrWhiteSpace(name))
+        {
+            await DisplayAlert("Errore", "Inserisci un nome valido", "OK");
+            return;
+        }
+
+        SaveBestScore(name, _score);
+
+        ShowGUI();
     }
 }

@@ -6,8 +6,40 @@
 
     <VerticalStackLayout>
         <Label 
-            Text="Versione dell'app: 1.0 (27.02.2026)"
+            Text="Versione dell'app: 1.1 (09.03.2026)"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <Label 
+            Text="Crediti: Marco Del Core"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Image Source="dotnet_bot.png"
+               HeightRequest="150"
+                Aspect="AspectFit"
+                HorizontalOptions="Center">
+        </Image>
+        
+        <Label 
+            Text="Contatti:"
+            FontSize="18"
+            Padding="12"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Mail: marco.delcore@student.edu.ti.ch"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label 
+            Text="Link Repository GitHub: https://github.com/MarcoDelCoreSAMT/Lab-Programmazione-2"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label Text="Note Legali: L'app è a scopo educativo."
+            Padding="30"       
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
     </VerticalStackLayout>
 </ContentPage>
