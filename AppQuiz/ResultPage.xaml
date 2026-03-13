@@ -32,7 +32,7 @@
                        HorizontalOptions="Center"/>
 
                 <Label 
-                    Text="su un totale di 45 pt"
+                    Text="su un totale di 80 pt"
                     FontSize="16"
                     TextColor="Gray"
                     VerticalOptions="Center" 

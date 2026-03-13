@@ -1,4 +1,5 @@
 ﻿using AppQuiz.Models;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace AppQuiz
 {
@@ -11,11 +12,18 @@ namespace AppQuiz
         public MainPage()
         {
             InitializeComponent();
-            _questions.Add(new TrueFalseQuestion("C# è un linguaggio ad oggetti?", 10, true, "csharp_logo.png"));
-            _questions.Add(new TrueFalseQuestion("Python è un linguaggio compilato?", 15, false, "python_symbol.png"));
-            _questions.Add(new OpenQuestion("Qual'è il nome per il framework Microsoft per app cross-platform", 20, ".NET MAUI", "freimuork.png"));
-            ShowQuestion();
             btnResult.IsEnabled = false;
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (_questions.Count == 0)
+            {
+                await LoadQuestions();
+                ShowQuestion();
+            }
         }
 
         // L'evento porta con se il sender che è il button
@@ -33,8 +41,46 @@ namespace AppQuiz
             else {
                 await DisplayAlert("Errato!", "Risposta sbagliata...", "Avanti");
             }
-                _currentIndex++;
+            
+            _currentIndex++;
             ShowQuestion();
+        }
+
+        private async Task LoadQuestions()
+        {
+            using var stream = await FileSystem.OpenAppPackageFileAsync("domande.txt");
+            using var reader = new StreamReader(stream);
+
+            while (!reader.EndOfStream)
+            {
+                string line = await reader.ReadLineAsync();
+
+                if (string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                string[] parts = line.Split(';');
+
+                string type = parts[0];
+                string text = parts[1];
+                int points = int.Parse(parts[2]);
+                string answer = parts[3];
+                string image = parts[4];
+
+                if (type == "TF")
+                {
+                    bool correct = bool.Parse(answer);
+
+                    _questions.Add(
+                        new TrueFalseQuestion(text, points, correct, image)
+                    );
+                }
+                else if (type == "OPEN")
+                {
+                    _questions.Add(
+                        new OpenQuestion(text, points, answer, image)
+                    );
+                }
+            }
         }
 
         private void ShowQuestion()
@@ -60,17 +106,18 @@ namespace AppQuiz
                     OpenAnswerEntry.IsVisible = true;
                     SubmitOpenButton.IsVisible = true;
                 }
-                else
-                {
-                    QuestionImage.Source = "fineciao.png";
-                    OpenAnswerEntry.IsVisible = false;
-                    SubmitOpenButton.IsVisible = false;
-                    TrueButton.IsEnabled = FalseButton.IsEnabled = false;
-                    QuestionImage.IsEnabled = false;
-                    QuestionTextLabel.Text = "Fine";
-                    ScoreLabel.Text = "";
-                    btnResult.IsEnabled = true;
-                }
+                
+            }
+            else
+            {
+                QuestionImage.Source = "fineciao.png";
+                OpenAnswerEntry.IsVisible = false;
+                SubmitOpenButton.IsVisible = false;
+                TrueButton.IsEnabled = FalseButton.IsEnabled = false;
+                QuestionImage.IsEnabled = false;
+                QuestionTextLabel.Text = "Fine";
+                ScoreLabel.Text = "";
+                btnResult.IsEnabled = true;
             }
         }
 
@@ -88,7 +135,7 @@ namespace AppQuiz
 
         private async void SubmitOpenButton_Clicked(object sender, EventArgs e)
         {
-            OpenQuestion current = (OpenQuestion)_questions[_currentIndex];
+            OpenQuestion current = _questions[_currentIndex] as OpenQuestion;
 
             if (current.CheckOpenAnswer(OpenAnswerEntry.Text))
             {
@@ -101,16 +148,12 @@ namespace AppQuiz
             }
 
             OpenAnswerEntry.Text = "";
+
             _currentIndex++;
-            QuestionImage.Source = "fineciao.png";
-            OpenAnswerEntry.IsVisible = false;
-            SubmitOpenButton.IsVisible = false;
-            TrueButton.IsEnabled = FalseButton.IsEnabled = false;
-            QuestionImage.IsEnabled = false;
-            QuestionTextLabel.Text = "Fine";
-            ScoreLabel.Text = "";
-            btnResult.IsEnabled = true;
+
+            ShowQuestion();
         }
+
     }
 
 }
