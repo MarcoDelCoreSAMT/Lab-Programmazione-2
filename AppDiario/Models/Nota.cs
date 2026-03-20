@@ -16,6 +16,7 @@ namespace AppDiario.Models
 			get { return _titolo; }
 			set 
 			{
+				// Rimuovi controllo qua se si vuole che si mostri l'alert dell'errore
 				if (String.IsNullOrEmpty(value)) 
 				{ 
 					value = "sconosciuto";
@@ -29,16 +30,25 @@ namespace AppDiario.Models
         public string Testo
 		{
 			get { return _testo; }
-			set { _testo = value; }
+			set 
+			{
+				if (String.IsNullOrEmpty(value)) 
+				{
+					value = " - ";
+				}
+				_testo = value; 
+			}
 		}
 
+        // Converte un oggetto Nota in una stringa CSV da scrivere sul file
         public string daOggettoARiga()
         {
             return this.Titolo + ";" + this.Testo;
         }
 
-		// ritorna un oggetto Nota
-		public static Nota daRigaAOggetto(string riga)
+        // Converte una stringa CSV in un oggetto Nota
+        // static: si chiama sulla classe, NON su un'istanza ==> Nota.DaRigaAOggetto(riga)
+        public static Nota daRigaAOggetto(string riga)
 		{
 			string[] parti = riga.Split(';');
 			if (parti.Length < 2) { return null; }

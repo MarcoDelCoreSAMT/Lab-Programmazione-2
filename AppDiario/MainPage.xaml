@@ -15,7 +15,7 @@
                 FontAttributes="Bold"/>
 
             <Entry x:Name="EntTitolo"
-                   Placeholder="Inserisci Titolo"/>
+                Placeholder="Inserisci Titolo"/>
             <Entry x:Name="EntTesto"
                 Placeholder="Inserisci Testo"/>
             
