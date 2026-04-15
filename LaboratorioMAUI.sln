@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDiario", "AppDiario\AppD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloList", "HelloList\HelloList.csproj", "{D8D34DFD-A6FC-424C-BAD3-74565409922A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaAPP Picker", "PizzaAPP Picker\PizzaAPP Picker.csproj", "{100F47D7-7482-4256-9DBF-F359C91089D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,12 @@ Global
 		{D8D34DFD-A6FC-424C-BAD3-74565409922A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D34DFD-A6FC-424C-BAD3-74565409922A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8D34DFD-A6FC-424C-BAD3-74565409922A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{100F47D7-7482-4256-9DBF-F359C91089D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100F47D7-7482-4256-9DBF-F359C91089D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100F47D7-7482-4256-9DBF-F359C91089D2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{100F47D7-7482-4256-9DBF-F359C91089D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100F47D7-7482-4256-9DBF-F359C91089D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{100F47D7-7482-4256-9DBF-F359C91089D2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +91,7 @@ Global
 		{7F77C034-6A5E-4C4E-B5A0-BFE12045EEF9} = {5E016671-4C59-455A-8E20-B42974099E76}
 		{AA3FBE30-8D01-42A7-90A2-F41CC7B519FF} = {5E016671-4C59-455A-8E20-B42974099E76}
 		{D8D34DFD-A6FC-424C-BAD3-74565409922A} = {6C83A596-D32D-B35F-00DD-F0C99B673980}
+		{100F47D7-7482-4256-9DBF-F359C91089D2} = {5E016671-4C59-455A-8E20-B42974099E76}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CDCBA6E-B65D-4DBF-A0D9-B99F89E725E8}

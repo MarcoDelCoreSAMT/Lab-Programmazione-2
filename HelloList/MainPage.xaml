@@ -9,7 +9,8 @@
             Spacing="25">
             <Picker x:Name="pickFrutti"
                     Title="Scegli un'opzione"
-                    WidthRequest="400" />
+                    WidthRequest="400"
+                    <!--ItemDisplayBinding="{Binding Nome}"-->/>
         </VerticalStackLayout>
     </ScrollView>
 
