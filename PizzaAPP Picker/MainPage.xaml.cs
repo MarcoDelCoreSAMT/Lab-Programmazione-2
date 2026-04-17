@@ -14,9 +14,9 @@ namespace PizzaAPP_Picker
         private void ShowGUI()
         {
             pizze = new List<Zappi>();
-            pizze.Add(new Zappi("Margherita", 10, "dotnet_bot.png", "Carlino - Peppa Pig"));
-            pizze.Add(new Zappi("Prosciutto", 14, "dotnet_bot.png", "Carco Del More - Culatello di zibello"));
-            pizze.Add(new Zappi("Bohdan", 67, "dotnet_bot.png", "Tartufo - Insulina - boh...(dan)"));
+            pizze.Add(new Zappi("Margherita", 10, "margherits.png", "Pomodoro - Mozzarella"));
+            pizze.Add(new Zappi("Prosciutto", 14, "bizzaprosciuts.png", "Pomodoro - Mozzarella - Prosciutto - Pomodorini"));
+            pizze.Add(new Zappi("Orrenda", 67, "surprais.png", "Preferisco non specificarlo..."));
 
             PizzaPicker.ItemsSource = pizze;
         }
@@ -25,8 +25,10 @@ namespace PizzaAPP_Picker
         {
             Zappi selectedPizza = (Zappi)PizzaPicker.SelectedItem;
 
+            imgPizza.Source = selectedPizza.Image;
             lbPizzaNome.Text = selectedPizza.Nome;
-            lbPizzaPrezzo.Text = selectedPizza.Prezzo.ToString() + "Fr.-";
+            lbPizzaPrezzo.Text = selectedPizza.Prezzo.ToString() + " Fr.-";
+            lbIngredienti.Text = selectedPizza.Ingredienti;
         }
     }
 

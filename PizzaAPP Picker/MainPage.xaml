@@ -13,15 +13,27 @@
                 Padding="15"
                 HorizontalOptions="Center"/>
 
+            <BoxView
+                Color="Grey"
+                WidthRequest="1375"
+                HeightRequest="1"/>
+
             <Picker x:Name="PizzaPicker"
-                    Title="Scegli il tipo di pizza"
+                    Title="Seleziona il tipo di pizza"
                     WidthRequest="400"
                     ItemDisplayBinding="{Binding Nome}"
+                    HorizontalOptions="Start"
                     SelectedIndexChanged="OnSelectedIndexChanged"/>
 
+            <Image x:Name="imgPizza"
+                WidthRequest="150"
+                HeightRequest="150"
+                HorizontalOptions="Start"
+                Margin="10"/>
             <Label x:Name="lbPizzaNome"/>
             <Label x:Name="lbPizzaPrezzo"/>
-            
+            <Label x:Name="lbIngredienti"/>
+
         </VerticalStackLayout>
     </ScrollView>
 
